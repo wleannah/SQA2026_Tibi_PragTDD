@@ -1,0 +1,158 @@
+
+###############################################################################
+# Visual Studio / .NET (general)
+###############################################################################
+# VS user/workspace state
+.vs/
+*.suo
+*.user
+*.rsuser
+*.userosscache
+*.sln.docstates
+*.vsidx
+*.VC.db
+*.opendb
+*.db
+*.tlog
+*.md
+
+# Build outputs
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Ww][Ii][Nn]32/
+artifacts/
+TestResults/
+[Tt]est[Rr]esult*/
+*.cache/
+*.ilk
+*.pdb
+*.obj
+*.iobj
+*.ipch
+*.pch
+*.idb
+
+# NuGet (classic packages folder; PackageReference restores globally)
+packages/
+# but keep packages/build/ if present
+!packages/build/
+*.nupkg
+*.snupkg
+
+# MSBuild/Design-time caches occasionally surface
+*.binlog
+msbuild.log
+*.metaproj
+*.metaproj.tmp
+
+# Rider/JetBrains
+.idea/
+*.sln.iml
+*.iml
+
+# VS Code: ignore folder but keep useful shared settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+# Workspace files are optional—ignore by default
+*.code-workspace
+
+# Solution/UI layout & scratch
+DocumentLayout*.json
+*.svclog
+
+###############################################################################
+# Testing & coverage (NUnit/xUnit/MSTest, SpecFlow, Playwright, Stryker.NET)
+###############################################################################
+# Generic test outputs
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage-*
+coverage.*.json
+*.lcov
+*.opencover.xml
+*.cobertura.xml
+
+# SpecFlow generated/report artifacts (generated code is already under obj/)
+SpecFlowPlus/
+LivingDoc.html
+LivingDoc.json
+TestExecution.json
+
+# Playwright (Node-based)
+# - typical output folders
+playwright-report/
+test-results/
+playwright/.cache/
+# Node artifacts
+node_modules/
+.npm/
+# lockfiles should be committed; do not ignore package-lock.json/yarn.lock/pnpm-lock.yaml
+
+# Stryker.NET mutation testing
+StrykerOutput/
+.stryker-tmp/
+.mutation-report/
+mutation-report.html
+reports/mutation/    # if you write reports here
+
+###############################################################################
+# CodeQL
+###############################################################################
+# Keep QL project manifests if you version them, but ignore local databases/cache
+.codeql/
+codeql-db/
+codeql-database/
+codeql-results/
+qlpack.lock.yml
+
+###############################################################################
+# IDEs, OS cruft, miscellaneous
+###############################################################################
+# macOS / Windows
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# Editors
+*.swp
+*.swo
+
+# Archives / temp
+*.zip
+*.7z
+*.tar
+*.gz
+*.tgz
+*.tmp
+tmp/
+temp/
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# Git
+*.orig
+*.merge_file_*
