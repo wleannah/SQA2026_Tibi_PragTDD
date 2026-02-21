@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="label" attr.type="string"/>
+  <key id="d1" for="edge" attr.name="label" attr.type="string"/>
+  <key id="d2" for="graph" attr.name="edgedefault" attr.type="string"/>
+  
+  <graph edgedefault="directed">
+    <!-- Vertices (States) -->
+    <node id="Started">
+      <data key="d0">Started</data>
+    </node>
+    <node id="PersonalInfoProvided">
+      <data key="d0">PersonalInfoProvided</data>
+    </node>
+    <node id="IdProvided">
+      <data key="d0">IdProvided</data>
+    </node>
+    <node id="AddressProvided">
+      <data key="d0">AddressProvided</data>
+    </node>
+    <node id="DepositProvided">
+      <data key="d0">DepositProvided</data>
+    </node>
+    <node id="Submitted">
+      <data key="d0">Submitted</data>
+    </node>
+    <node id="IdVerified">
+      <data key="d0">IdVerified</data>
+    </node>
+    <node id="AddressVerified">
+      <data key="d0">AddressVerified</data>
+    </node>
+    <node id="CitizenVerified">
+      <data key="d0">CitizenVerified</data>
+    </node>
+    <node id="Approved">
+      <data key="d0">Approved</data>
+    </node>
+    <node id="Rejected">
+      <data key="d0">Rejected</data>
+    </node>
+
+    <!-- Edges (Transitions) -->
+    <!-- Initial step: provide personal info -->
+    <edge source="Started" target="PersonalInfoProvided">
+      <data key="d1">ProvidePersonalDetails</data>
+    </edge>
+
+    <!-- Provide ID -->
+    <edge source="PersonalInfoProvided" target="IdProvided">
+      <data key="d1">ProvideId</data>
+    </edge>
+
+    <!-- Provide Address -->
+    <edge source="IdProvided" target="AddressProvided">
+      <data key="d1">ProvideAddress</data>
+    </edge>
+
+    <!-- Provide Deposit (must be >= $200) -->
+    <edge source="AddressProvided" target="DepositProvided">
+      <data key="d1">ProvideDeposit</data>
+    </edge>
+
+    <!-- Submit Application (requires complete form) -->
+    <edge source="DepositProvided" target="Submitted">
+      <data key="d1">SubmitApplication</data>
+    </edge>
+
+    <!-- Optional: Provide Immigration Docs (can be done after submit) -->
+    <edge source="Submitted" target="Submitted">
+      <data key="d1">ProvideImmigrationDocs</data>
+    </edge>
+
+    <!-- Verification transitions from Submitted state -->
+    <!-- ID Verification success -->
+    <edge source="Submitted" target="IdVerified">
+      <data key="d1">VerifyId_Success</data>
+    </edge>
+
+    <!-- ID Verification failure -->
+    <edge source="Submitted" target="Rejected">
+      <data key="d1">VerifyId_Failure</data>
+    </edge>
+
+    <!-- Address Verification success -->
+    <edge source="IdVerified" target="AddressVerified">
+      <data key="d1">VerifyAddress_Success</data>
+    </edge>
+
+    <!-- Address Verification failure -->
+    <edge source="IdVerified" target="Rejected">
+      <data key="d1">VerifyAddress_Failure</data>
+    </edge>
+
+    <!-- Citizen Verification success -->
+    <edge source="AddressVerified" target="CitizenVerified">
+      <data key="d1">VerifyCitizen_Success</data>
+    </edge>
+
+    <!-- Citizen Verification failure -->
+    <edge source="AddressVerified" target="Rejected">
+      <data key="d1">VerifyCitizen_Failure</data>
+    </edge>
+
+    <!-- All verifications passed -->
+    <edge source="CitizenVerified" target="Approved">
+      <data key="d1">CheckAllVerifications</data>
+    </edge>
+
+  </graph>
+</graphml>

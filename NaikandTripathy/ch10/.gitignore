@@ -14,7 +14,6 @@
 *.opendb
 *.db
 *.tlog
-*.md
 
 # Build outputs
 [Bb]in/
@@ -156,3 +155,10 @@ BenchmarkDotNet.Artifacts/
 # Git
 *.orig
 *.merge_file_*
+
+###############################################################################
+# Copilot chat files (ignore only these, not all .md files)
+###############################################################################
+copilot-*.md
+*-copilot.md
+.vscode/copilot/

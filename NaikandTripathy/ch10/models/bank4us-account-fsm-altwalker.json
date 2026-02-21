@@ -1,0 +1,51 @@
+{
+  "models": [
+    {
+      "id": "Bank4UsAccountOpening",
+      "name": "Bank4UsAccountOpening",
+      "generator": "random",
+      "startElementId": "Started",
+      "vertices": [
+        { "id": "Started", "name": "Started", "properties": { "description": "Initial state - application process starts" } },
+        { "id": "PersonalInfoProvided", "name": "PersonalInfoProvided", "properties": { "description": "Personal information (name, passport, DOB) provided" } },
+        { "id": "IdProvided", "name": "IdProvided", "properties": { "description": "Photo ID document provided" } },
+        { "id": "AddressProvided", "name": "AddressProvided", "properties": { "description": "Proof of address document provided" } },
+        { "id": "DepositProvided", "name": "DepositProvided", "properties": { "description": "Opening deposit >= $200 provided" } },
+        { "id": "Submitted", "name": "Submitted", "properties": { "description": "Complete application submitted for verification" } },
+        { "id": "IdVerified", "name": "IdVerified", "properties": { "description": "ID verification passed" } },
+        { "id": "AddressVerified", "name": "AddressVerified", "properties": { "description": "Address verification passed" } },
+        { "id": "CitizenVerified", "name": "CitizenVerified", "properties": { "description": "Citizen/immigration verification passed" } },
+        { "id": "Approved", "name": "Approved", "properties": { "description": "All verifications passed - account opening approved" } },
+        { "id": "Rejected", "name": "Rejected", "properties": { "description": "Any verification failed - application rejected" } }
+      ],
+      "edges": [
+        { "id": "edge_1",  "name": "ProvidePersonalDetails",  "sourceVertexId": "Started",           "targetVertexId": "PersonalInfoProvided",
+          "properties": { "description": "User provides name, passport, date of birth" } },
+        { "id": "edge_2",  "name": "ProvideId",              "sourceVertexId": "PersonalInfoProvided","targetVertexId": "IdProvided",
+          "properties": { "description": "User provides photo ID document" } },
+        { "id": "edge_3",  "name": "ProvideAddress",         "sourceVertexId": "IdProvided",          "targetVertexId": "AddressProvided",
+          "properties": { "description": "User provides proof of address document" } },
+        { "id": "edge_4",  "name": "ProvideDeposit",         "sourceVertexId": "AddressProvided",     "targetVertexId": "DepositProvided",
+          "properties": { "description": "User provides opening deposit, must be >= $200" } },
+        { "id": "edge_5",  "name": "SubmitApplication",      "sourceVertexId": "DepositProvided",     "targetVertexId": "Submitted",
+          "properties": { "description": "User submits completed application for verification" } },
+        { "id": "edge_6",  "name": "ProvideImmigrationDocs", "sourceVertexId": "Submitted",           "targetVertexId": "Submitted",
+          "properties": { "description": "User provides additional immigration documentation (optional)" } },
+        { "id": "edge_7",  "name": "VerifyId_Success",       "sourceVertexId": "Submitted",           "targetVertexId": "IdVerified",
+          "properties": { "description": "ID verification succeeds" } },
+        { "id": "edge_8",  "name": "VerifyId_Failure",       "sourceVertexId": "Submitted",           "targetVertexId": "Rejected",
+          "properties": { "description": "ID verification fails" } },
+        { "id": "edge_9",  "name": "VerifyAddress_Success",  "sourceVertexId": "IdVerified",          "targetVertexId": "AddressVerified",
+          "properties": { "description": "Address verification succeeds" } },
+        { "id": "edge_10", "name": "VerifyAddress_Failure",  "sourceVertexId": "IdVerified",          "targetVertexId": "Rejected",
+          "properties": { "description": "Address verification fails" } },
+        { "id": "edge_11", "name": "VerifyCitizen_Success",  "sourceVertexId": "AddressVerified",     "targetVertexId": "CitizenVerified",
+          "properties": { "description": "Citizen/immigration verification succeeds" } },
+        { "id": "edge_12", "name": "VerifyCitizen_Failure",  "sourceVertexId": "AddressVerified",     "targetVertexId": "Rejected",
+          "properties": { "description": "Citizen/immigration verification fails" } },
+        { "id": "edge_13", "name": "CheckAllVerifications",  "sourceVertexId": "CitizenVerified",     "targetVertexId": "Approved",
+          "properties": { "description": "All verifications passed - account approved" } }
+      ]
+    }
+  ]
+}
