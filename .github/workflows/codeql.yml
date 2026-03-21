@@ -1,0 +1,51 @@
+# CodeQL Security Analysis — COSC 6055 Week 11 Demo
+# Scans the Bank4Us.Security project (ch13) for SQL injection and other C# security issues.
+# Results appear in GitHub Security → Code scanning alerts.
+
+name: CodeQL Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Weekly scan every Monday at 08:00 UTC
+    - cron: '0 8 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze (csharp)
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+
+      # Initialize CodeQL — intercepts the build for database creation
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+          # security-extended covers 400+ queries (broader than default)
+          # Change to 'default' to reduce false positives in production
+          queries: security-extended
+
+      # Build the ch13 project — CodeQL captures the build artifacts
+      - name: Build Bank4Us.Security (ch13)
+        run: dotnet build NaikandTripathy/ch13/Bank4Us.Security/Bank4Us.Security.csproj
+
+      # Run the CodeQL analysis and upload SARIF to GitHub
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:csharp"
