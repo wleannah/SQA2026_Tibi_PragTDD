@@ -1,2 +1,16 @@
 
+# User-specific files
 *.user
+
+# Build output
+bin/
+obj/
+
+# Visual Studio / Rider IDE artifacts
+.vs/
+.idea/
+*.suo
+
+# CodeQL local artifacts (databases are large — regenerate via GitHub Actions or CLI)
+.codeql/
+codeql-database/

@@ -1,0 +1,4 @@
+name: bank4us-security-demo
+version: 0.0.1
+dependencies:
+  codeql/csharp-all: "*"

@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bank4Us.Security", "Bank4Us.Security\Bank4Us.Security.csproj", "{3173ED30-8034-7EA4-C3FE-90C4B29C39F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3173ED30-8034-7EA4-C3FE-90C4B29C39F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3173ED30-8034-7EA4-C3FE-90C4B29C39F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3173ED30-8034-7EA4-C3FE-90C4B29C39F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3173ED30-8034-7EA4-C3FE-90C4B29C39F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D670C99-D268-41EE-9392-45B7FC075BF5}
+	EndGlobalSection
+EndGlobal
