@@ -1,3 +1,5 @@
+using Bank4Us.Security;
+
 // Bank4Us.Security — CodeQL Week 11 Demo
 // Minimal API that exposes the vulnerable and safe account lookup endpoints.
 //
