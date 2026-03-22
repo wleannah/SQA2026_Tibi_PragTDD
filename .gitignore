@@ -11,6 +11,11 @@ obj/
 .idea/
 *.suo
 
+# GitHub Copilot auto-generated workspace instruction files
+# These are machine-specific — do not commit
+copilot-instructions.md
+.github/copilot-instructions.md
+
 # CodeQL local artifacts (databases are large — regenerate via GitHub Actions or CLI)
 .codeql/
 codeql-database/
